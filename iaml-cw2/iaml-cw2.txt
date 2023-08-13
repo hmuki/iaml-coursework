@@ -1,0 +1,115 @@
+IAML CW2 RESPONSES
+
+1.1
+First four of first training sample
+array([-3.13725490e-06, -2.26797386e-05, -1.17973856e-04, -4.07058824e-04])
+First four of last training sample
+array([-3.13725490e-06, -2.26797386e-05, -1.17973856e-04, -4.07058824e-04])
+1.2
+The two nearest vectors per class are representative of what most of the typical elements
+Of the class look like.
+The two furthest vectors are representative of what few anomalous elements of the class
+Look like.
+Each feature in the mean vector of a given class is the average value of that particular feature over all the
+Elements of that class.
+1.3
+Cumulative explained variance
+68.21739795109517
+Variances of first five principal components
+array([ 2.62477022,  3.38182839,  4.10615661, 12.11221047, 19.80980567])
+1.4
+The amount of variance Vk contained by principal component k decreases as k increases.
+As such, the cumulative variance increases rapidly for the first few principal components.
+Later on its rate of increase slows down to just above zero as the last principal components
+Contribute very little to the cumulative variance.
+1.5
+Each principal component contains the characteristic features present in some or all of the classes. For the first five components, these characteristic features are striking but as the 
+Number of the component increases, these distinctive features become blurred I.e. less noticeable.
+1.6
+Root mean squared errors
+array([[0.25614866, 0.15000682, 0.12761144, 0.06009258],
+       [0.1980244 , 0.14043966, 0.09507974, 0.03541976],
+       [0.19870016, 0.14561728, 0.12340082, 0.07828281],
+       [0.14565798, 0.10725657, 0.08342968, 0.05604424],
+       [0.1182087 , 0.10262621, 0.08794267, 0.04637152],
+       [0.18112976, 0.1586612 , 0.14277478, 0.09011229],
+       [0.12947928, 0.09583237, 0.07227577, 0.04581635],
+       [0.16562538, 0.12782401, 0.10661942, 0.06217125],
+       [0.22339659, 0.14496876, 0.12362768, 0.09217217],
+       [0.18351042, 0.15108848, 0.12193132, 0.07279154]])
+1.7
+As the number of components increases, the quality of the reconstructed image increases. Each
+additional principal components adds to the amount of information needed to distinguish one sample in the dataset from another.
+1.8
+The classes are inseparable when projected on the 2D PCA plane since there are only two principal components involved. In general, projections also lead to loss of information. If we were to increase the number of principal components, we would get clearer boundaries between the different classes. 
+3.1
+Inertia
+38185.816951386696
+Samples per cluster
+array([1018., 1125., 1191.,  890., 1162., 1332.,  839.,  623., 1400.,
+        838.,  659., 1276.,  121.,  152.,  950., 1971., 1251.,  845.,
+        896.,  930., 1065., 1466.])
+3.2
+Mean vectors and cluster centres not similar in general
+We expect the cluster centres to be close to the mean vectors but due to the extreme simplification applied to the data this is not the case.
+3.3
+We notice that languages belonging to geographically close regions most often belong to the same hierarchical cluster most of the time.
+3.4
+From the dendrograms we see that the different cluster centres for a given language usually belong to different hierarchical clusters. This means that the way some words of a given language are pronounced can be similar to the way some words of another language are pronounced. This could be because words belonging to different languages may have the same region of origin.
+3.5
+In general, as the number of mixture components increases, the per-sample average log-likelihood (which is a measure of the performance of the GMM model) increases. There are 26 features for a given language, which is likely also same as the number of mixture components of the optimal GMM model for the language. This explains why as we increase the number of mixture components from 1 to 15, we are able to better decompose the language GMM as a linear combination of its components.
+The GMM with full covariance performs poorly on the testing data as the number of mixture components increases due to an insufficient amount of samples. Meanwhile, that with diagonal covariance (which use the NB assumption) improves its performance as the number of mixture components increases.
+
+array([[[16.39360044, 18.05959899, 19.06541226, 21.03278986,
+         22.80935124],
+        [14.28041612, 15.39859493, 15.92790552, 16.96005956,
+         17.58240233]],
+
+       [[15.81051154, 16.98981871, 16.58207638, 15.17451882,
+         12.33024781],
+        [13.84292392, 15.0414001 , 15.62403971, 16.40599156,
+         17.07720165]]])
+
+2.1
+Classification accuracy
+0.8398
+Confusion matrix
+array([[819,   4,  15,  50,   7,   4,  88,   1,  12,   0],
+       [  5, 953,   4,  27,   5,   0,   3,   1,   2,   0],
+       [ 27,   4, 731,  11, 133,   0,  82,   2,   9,   1],
+       [ 29,  17,  14, 866,  33,   0,  37,   0,   4,   0],
+       [  1,   4, 115,  39, 759,   2,  71,   0,   9,   0],
+       [  2,   0,   0,   1,   0, 912,   0,  56,   9,  20],
+       [149,   3, 126,  47, 108,   1, 537,   0,  28,   1],
+       [  0,   0,   0,   0,   0,  32,   0, 936,   1,  31],
+       [  7,   1,   6,  11,   3,   7,  15,   5, 944,   1],
+       [  0,   0,   0,   1,   0,  15,   1,  42,   0, 941]])
+2.2
+Mean accuracy
+0.8462
+Confusion matrix
+array([[845,   2,   8,  51,   4,   4,  72,   0,  14,   0],
+       [  4, 951,   7,  31,   5,   0,   1,   0,   1,   0],
+       [ 16,   2, 751,  11, 136,   0,  76,   0,   8,   0],
+       [ 32,   6,  12, 883,  26,   0,  38,   0,   3,   0],
+       [  1,   0,  98,  38, 773,   0,  86,   0,   4,   0],
+       [  0,   0,   0,   1,   0, 911,   0,  60,   2,  26],
+       [185,   1, 122,  39,  95,   0, 533,   0,  25,   0],
+       [  0,   0,   0,   0,   0,  34,   0, 926,   0,  40],
+       [  3,   1,   8,   5,   2,   4,  13,   4, 959,   1],
+       [  0,   0,   0,   0,   0,  22,   0,  47,   1, 930]])
+2.3
+Elements in class 9 are not present among the points. As we end up recovering a data point x in the original space from a 2D point z on the plane, we are unable to get points that were present in the dataset. This is due to loss of information as a result of the 2D representation. So it is highly likely that points we obtain in the original space for classifying points on the plane are not representative of all the classes.
+As a linear solver was used, the decision boundaries for the classes are approximately linear.
+Due to the large size of the dataset, it takes a considerable amount of time to build the model and predict the classes of the testing data. 
+2.4
+This time around, elements of class 8 are absent. Class 1 has significantly more elements when the SVM is used.
+In general, the 'average' position where classes are located is similar for both the LR and SVM classifiers.
+As radial basis functions are used, the decision boundaries are non-linear. Due to the large size of the dataset, it takes a considerable amount of time to build the model and predict the classes of the testing data.
+2.5 
+Value of C which yielded max accuracy : 21.544346900318846
+Highest accuracy score : 0.8565023106939273
+2.6
+Classification accuracy on training set : 0.9084166666666667
+Classification accuracy on testing set : 0.877
+
